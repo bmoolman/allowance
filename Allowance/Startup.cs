@@ -18,7 +18,7 @@ namespace Allowance
 
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration; 
         }
 
         public void ConfigureServices(IServiceCollection services)

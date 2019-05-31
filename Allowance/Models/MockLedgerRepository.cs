@@ -29,8 +29,26 @@ namespace Allowance.Models
             };
         }
 
+        private void CalculateLineBalance()
+        {
+            decimal newBalance = 0;
+            foreach (var item in _ledgerTransactions.OrderBy(s => s.TransactionId))
+            {
+                if (item.TransactionHash == "InitialBalance")
+                {
+                    newBalance = item.TAmount;
+                }
+                else
+                {
+                    newBalance += item.TAmount;
+                }
+
+                item.TBalance = newBalance;
+            }
+        }
         public IEnumerable<LedgerTransaction> GetAllLedgerTransactions(int personID)
         {
+            CalculateLineBalance();
             return _ledgerTransactions.OrderBy(s => s.TransactionId);
         }
     }

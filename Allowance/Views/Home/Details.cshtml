@@ -1,12 +1,24 @@
 ﻿@model IEnumerable<LedgerTransaction>
     <div class="container">
-        @foreach (var item in Model)
-        {
-            <div class="row">
-                <div class="col-md-2">@Html.DisplayFor(modelItem => item.TDate)</div>
-                <div class="col-md-4">@item.TDescription</div>
-                <div class="col-md-2 text-md-right float-md-right">@item.TAmount</div>
-                <div class="col-md-4"></div>
-            </div>
-        }
+        <table class="table-sm">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr style="border-bottom:1px solid black">
+                    <td>@Html.DisplayFor(modelItem => item.TDate)</td>
+                    <td>@item.TDescription</td>
+                    <td class="text-md-right">@item.TAmount</td>
+                    <td class="text-md-right">@item.TBalance</td>
+                </tr>
+                }
+            </tbody>
+        </table>       
     </div>

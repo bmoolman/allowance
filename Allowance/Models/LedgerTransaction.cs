@@ -10,9 +10,10 @@ namespace Allowance.Models
         public int PersonId { get; set; }
 
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-mm-dd}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime TDate { get; set; }
         public decimal TAmount { get; set; }
+        public decimal TBalance { get; set; } = 0;
         public string TDescription { get; set; } 
     }
 }

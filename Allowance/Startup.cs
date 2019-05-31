@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Allowance.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
 
 namespace Allowance
 {
@@ -23,7 +26,15 @@ namespace Allowance
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddTransient<ILedgerRespository, MockLedgerRepository>();
+            services.AddSingleton<IDateTime, SystemDateTime>();
+
+            services
+                 .AddMvc()
+                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                 // Maintain property names during serialization. See:
+                 // https://github.com/aspnet/Announcements/issues/194
+                 .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LedgerTransaction>
+@DateTime.Now
+    <div class="row">
+        <div class="col-12">
+            <table class="table-borderless table ledger-table" @*style="width:100%" *@>
+                @*
+                <thead>
+                    <tr>
+                        @*
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th class="float-right">Amount</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>*@
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@item.TDescription</strong>
+                                <div class="trans-date">@Html.DisplayFor(modelItem => item.TDate)</div>
+                            <td class="type-@item.TType ledger-money-col">@Html.DisplayFor(modelItem => item.TAmount)</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

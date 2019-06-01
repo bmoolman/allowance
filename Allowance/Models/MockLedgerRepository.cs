@@ -26,6 +26,9 @@ namespace Allowance.Models
                 new LedgerTransaction{TransactionId=3,PersonId=1,TAmount=200,TDescription="Mowed Neighbour's Lawn",TDate=Convert.ToDateTime("2019-06-08 00:00"),TransactionHash="BlockchainHashGoesHere"},
                 new LedgerTransaction{TransactionId=5,PersonId=1,TAmount=200,TDescription="Monthly Allowance",TDate=Convert.ToDateTime("2019-07-01 00:00"),TransactionHash="BlockchainHashGoesHere"},
                 new LedgerTransaction{TransactionId=4,PersonId=1,TAmount=-500,TDescription="Video Game Purchase",TDate=Convert.ToDateTime("2019-06-12 00:00"),TransactionHash="BlockchainHashGoesHere"},
+                new LedgerTransaction{TransactionId=6,PersonId=1,TAmount=150,TDescription="Walked Dog",TDate=Convert.ToDateTime("2019-08-01 00:00"),TransactionHash="BlockchainHashGoesHere"},
+                new LedgerTransaction{TransactionId=7,PersonId=1,TAmount=250,TDescription="Baby sat",TDate=Convert.ToDateTime("2019-08-12 00:00"),TransactionHash="BlockchainHashGoesHere"},
+                new LedgerTransaction{TransactionId=8,PersonId=1,TAmount=-250,TDescription="Movies",TDate=Convert.ToDateTime("2019-08-12 00:00"),TransactionHash="BlockchainHashGoesHere"},
             };
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Allowance.Models;
@@ -21,6 +22,7 @@ namespace Allowance
 
         public Startup(IConfiguration configuration)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("se-SV");
             Configuration = configuration; 
         }
 
@@ -43,6 +45,7 @@ namespace Allowance
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseHsts();
             }
             else
             {
